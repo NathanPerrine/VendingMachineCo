@@ -5,7 +5,7 @@
   <div class="w-full max-w-7xl flex flex-row justify-between">
     <div class="flex items-center">
       <img src={vendingIcon} alt="Vending machine icon" width="50px"/>
-      <a href="/" class="text-2xl my-auto">Big Steve's Vending Machine Co.</a>
+      <a href="/" class="text-2xl my-auto">SnackMaster Vending Solutions</a>
     </div>
 
     <div class="flex items-center">
