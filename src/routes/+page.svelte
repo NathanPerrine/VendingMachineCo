@@ -1,7 +1,9 @@
 <script lang="ts">
-	import vendingMachineAlley from '$lib/assets/images/vendingMachineAlley.jpg';
-	import vendingMachineBuilding from '$lib/assets/images/vendingMachineBuilding.png';
 	import VendingDisplay from '$lib/assets/images/VendingDisplay.png';
+	import Services from './Services.svelte';
+  import services from '$lib/data/services.json'
+  let servicesLeft = services.slice(0, 2)
+  let servicesRight = services.slice(2, 4)
 </script>
 
 <main class="w-full flex flex-col justify-center">
@@ -27,23 +29,71 @@
 		<svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"
 			><path
 				d="M-4.51,82.40 C150.00,150.00 271.49,-49.98 515.80,105.08 L500.00,0.00 L0.00,0.00 Z"
-				style="stroke: none; fill: rgb(94, 192, 194); --darkreader-inline-stroke: none; --darkreader-inline-fill: #33a6ff;"
+				style="stroke: none;  --darkreader-inline-stroke: none; --darkreader-inline-fill: #33a6ff;"
 				data-darkreader-inline-stroke=""
 				data-darkreader-inline-fill=""
 			></path></svg
 		>
 	</div>
 
+  <!-- services -->
   <div class="w-full flex justify-center">
-    <div class="max-w-7xl">
-      about us
-    </div>
+    <section id="ourServices" class="w-full max-w-7xl flex flex-col items-center">
+      <h2 class="font-bold text-2xl">Our Services</h2>
+      <!-- services container -->
+      <div class="flex justify-between gap-4 my-4">
+        <div class="w-full">
+          {#each servicesLeft as service (service.service)}
+            <Services icon={service.icon} service={service.service} desc={service.desc} leftOrRight="left"/>
+          {/each}
+        </div>
+        <!-- divider -->
+        <div class="h-4/5 border border-gray-600 self-center"></div>
+
+        <div class="w-full">
+          {#each servicesRight as service (service.service)}
+            <Services icon={service.icon} service={service.service} desc={service.desc} leftOrRight="right"/>
+          {/each}
+        </div>
+      </div>
+    </section>
   </div>
+
+	<!-- Wavy div to break section -->
+	<div style="height: 150px; overflow: hidden;">
+		<svg class="wavyFlip" viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"
+			><path
+				d="M-4.51,82.40 C150.00,150.00 271.49,-49.98 515.80,105.08 L500.00,0.00 L0.00,0.00 Z"
+				style="stroke: none;  --darkreader-inline-stroke: none; --darkreader-inline-fill: #33a6ff;"
+				data-darkreader-inline-stroke=""
+				data-darkreader-inline-fill=""
+			></path></svg
+		>
+	</div>
+
+  <!-- Why choose us -->
+  <div class="wavy flex justify-center w-full">
+    <section class="max-w-7xl flex justify-center">
+      <h2 class="font-bold text-2xl">Why Choose SnackMaster Vending Solutions?</h2>
+      <section>
+        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
+      </section>
+      <section>
+        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
+      </section>
+      <section>
+        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
+      </section>
+      <section>
+        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
+      </section>
+    </section>
+  </div>
+
+
 </main>
 
 <style lang="scss">
-	$background: #e6f4f1;
-
 	#hero {
 		width: full;
 		position: relative;
@@ -54,10 +104,16 @@
 	}
 
 	.wavy {
-		background-color: rgb(94, 192, 194);
+		// background-color: rgb(94, 192, 194);
+    background-color: $primary-accent;
 	}
 
-	:global(body) {
-		background-color: $background;
-	}
+  .wavyFlip {
+    // -webkit-transform: scale(-1, -1);
+    transform: scale(-1);
+  }
+
+  path {
+    fill: $primary-accent;
+  }
 </style>
