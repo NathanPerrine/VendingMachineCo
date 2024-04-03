@@ -73,20 +73,26 @@
 
   <!-- Why choose us -->
   <div class="wavy flex justify-center w-full">
-    <section class="max-w-7xl flex justify-center">
+    <section class="w-full max-w-7xl flex flex-col justify-center">
       <h2 class="font-bold text-2xl">Why Choose SnackMaster Vending Solutions?</h2>
-      <section>
-        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
+      <section class="aboutMe h-12 rounded-lg">
+        <!-- text -->
+        <div>
+          <h2 class="font-bold text-lg">Reliability</h2>
+          <p>
+            With SnackMaster, you can count on dependable vending services that are always there when you need them.
+          </p>
+        </div>
+      </section>
+      <!-- <section>
+        Variety: We offer an extensive selection of snacks and beverages to please every palate and dietary need.
       </section>
       <section>
-        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
+        Convenience: Our hassle-free placement, maintenance, and restocking services make vending easy and stress-free for you.
       </section>
       <section>
-        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
-      </section>
-      <section>
-        Reliability: With SnackMaster, you can count on dependable vending services that are always there when you need them.
-      </section>
+        Exceptional Customer Service: We pride ourselves on delivering superior customer service and building lasting relationships with our clients.
+      </section> -->
     </section>
   </div>
 
@@ -102,6 +108,12 @@
 			width: 400px;
 		}
 	}
+
+  .aboutMe{
+    background-color: $background;
+    width: 100%;
+    border: 2px solid $dark-accent;
+  }
 
 	.wavy {
 		// background-color: rgb(94, 192, 194);
