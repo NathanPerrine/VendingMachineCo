@@ -1,5 +1,6 @@
 <script lang="ts">
 	import VendingDisplay from '$lib/assets/images/VendingDisplay.png';
+  import vendingOffice from '$lib/assets/images/vendingOffice.jpg'
 	import Services from './Services.svelte';
   import services from '$lib/data/services.json'
   let servicesLeft = services.slice(0, 2)
@@ -9,8 +10,8 @@
 <main class="w-full flex flex-col justify-center">
 	<div class="w-full py-3 wavy flex justify-center">
 		<!-- hero -->
-		<section id="hero" class="max-w-7xl flex justify-around">
-			<div id="heroTextContainer" class=" w-1/3 min-h-min p-4 flex flex-col justify-center">
+		<section id="hero" class="max-w-7xl flex justify-around items-center">
+			<div id="heroTextContainer" class="w-1/3 min-h-min p-4 flex flex-col justify-center rounded-lg">
 				<h1 class="text-3xl font-bold">Welcome to SnackMaster</h1>
 				<p class="text-lg pt-4">
 					At SnackMaster, we're dedicated to providing convenient, reliable, and satisfying vending
@@ -38,7 +39,7 @@
 
   <!-- services -->
   <div class="w-full flex justify-center">
-    <section id="ourServices" class="w-full max-w-7xl flex flex-col items-center">
+    <section id="ourServices" class="w-full max-w-7xl flex flex-col items-center mx-4">
       <h2 class="font-bold text-2xl">Our Services</h2>
       <!-- services container -->
       <div class="flex justify-between gap-4 my-4">
@@ -72,34 +73,95 @@
 	</div>
 
   <!-- Why choose us -->
-  <div class="wavy flex justify-center w-full">
-    <section class="w-full max-w-7xl flex flex-col justify-center">
-      <h2 class="font-bold text-2xl">Why Choose SnackMaster Vending Solutions?</h2>
-      <section class="aboutMe h-12 rounded-lg">
-        <!-- text -->
+  <div class="wavy flex justify-center w-full h-full">
+    <div class="w-full max-w-7xl flex flex-col justify-center my-4">
+      <h2 class="font-bold text-2xl mb-4 text-center">Why Choose SnackMaster Vending Solutions?</h2>
+      <section class="mx-4 relative">
         <div>
+          <img src={vendingOffice} alt="Vending machine in an office" class="rounded-lg w-4/5 mx-auto" />
+        </div>
+        <!-- text -->
+        <div class="w-1/4 chooseTextContainer topLeft">
           <h2 class="font-bold text-lg">Reliability</h2>
           <p>
             With SnackMaster, you can count on dependable vending services that are always there when you need them.
           </p>
         </div>
+        <div class="w-1/4 chooseTextContainer center">
+          <h2 class="font-bold text-lg">Variety</h2>
+          <p>
+            We offer an extensive selection of snacks and beverages to please every palate and dietary need.
+          </p>
+        </div>
+        <div class="w-1/4 chooseTextContainer bottomLeft">
+          <h2 class="font-bold text-lg">Convenience</h2>
+          <p>
+            Our hassle-free placement, maintenance, and restocking services make vending easy and stress-free for you.
+          </p>
+        </div>
+        <div class="w-1/4 chooseTextContainer bottomRight">
+          <h2 class="font-bold text-lg">Exceptional Customer Service</h2>
+          <p>
+            We pride ourselves on delivering superior customer service and building lasting relationships with our clients.
+          </p>
+        </div>
       </section>
-      <!-- <section>
-        Variety: We offer an extensive selection of snacks and beverages to please every palate and dietary need.
-      </section>
-      <section>
-        Convenience: Our hassle-free placement, maintenance, and restocking services make vending easy and stress-free for you.
-      </section>
-      <section>
-        Exceptional Customer Service: We pride ourselves on delivering superior customer service and building lasting relationships with our clients.
-      </section> -->
-    </section>
+    </div>
   </div>
+
+  <!-- Wavy div to break section -->
+	<div style="height: 150px; overflow: hidden;">
+		<svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"
+			><path
+				d="M-4.51,82.40 C150.00,150.00 271.49,-49.98 515.80,105.08 L500.00,0.00 L0.00,0.00 Z"
+				style="stroke: none;  --darkreader-inline-stroke: none; --darkreader-inline-fill: #33a6ff;"
+				data-darkreader-inline-stroke=""
+				data-darkreader-inline-fill=""
+			></path></svg
+		>
+	</div>
+
+
+
 
 
 </main>
 
 <style lang="scss">
+
+  .chooseTextContainer {
+    background-color: $background;
+
+    border-radius: 0.5rem;
+    border: 2px solid $dark-accent;
+    position: absolute;
+    padding: 8px;
+
+    &.topLeft {
+      top: 10%;
+      left: 5%;
+    }
+    &.topRight {
+      top: 10%;
+      right: 5%;
+    }
+    &.bottomLeft {
+      bottom: 10%;
+      left: 5%;
+    }
+    &.bottomRight {
+      bottom: 10%;
+      right: 5%;
+    }
+    &.center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+
 	#hero {
 		width: full;
 		position: relative;
@@ -109,6 +171,11 @@
 		}
 	}
 
+  #heroTextContainer {
+    background-color: $background;
+    height: min-content;
+  }
+
   .aboutMe{
     background-color: $background;
     width: 100%;
@@ -116,12 +183,10 @@
   }
 
 	.wavy {
-		// background-color: rgb(94, 192, 194);
     background-color: $primary-accent;
 	}
 
   .wavyFlip {
-    // -webkit-transform: scale(-1, -1);
     transform: scale(-1);
   }
 
