@@ -155,8 +155,8 @@
 	</div>
 
 	<!-- Our Products -->
-	<div class="w-full flex justify-center h-[50vh]">
-		<section class="w-full max-w-7xl flex flex-col items-center mx-4">
+	<div class="w-full flex justify-center mb-8">
+		<section class="w-full max-w-7xl flex flex-col items-center justify-between mx-4 h-[500px]">
 			<h2 class="font-bold text-xl">Our products</h2>
 			<p class="text-center">
 				By offering a diverse selection that inclueds healthy options, salty snacks, and sweet
@@ -331,8 +331,7 @@
 	$slide-change-timing: 3; // percentage of total animation cycle
 
 	.wrapper {
-		// background: linear-gradient(60deg, #420285, #08bdbd);
-		height: 100%;
+		height: 50%;
 		width: 100%;
 		display: flex;
 		justify-content: center;
