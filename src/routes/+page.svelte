@@ -242,7 +242,7 @@
 
 			<p>
 				Our stock is always expanding to meet the needs and preferences of our customers, for a more
-				comprehensive list please contact us <a href="#contactUs" class="link">here</a>
+				comprehensive list please contact us <a href="mailto:snackmaster@gmail.com" class="link">here</a>
 			</p>
 		</section>
 	</div>
@@ -326,8 +326,8 @@
 
 	$animation-timing: 28s;
 	$carousel-items: 7;
-	$animation-delay-fraction: $animation-timing / $carousel-items;
-	$animation-steps-fraction: 100 / $carousel-items;
+	$animation-delay-fraction: calc($animation-timing / $carousel-items);
+	$animation-steps-fraction: calc(100 / $carousel-items);
 	$slide-change-timing: 3; // percentage of total animation cycle
 
 	.wrapper {

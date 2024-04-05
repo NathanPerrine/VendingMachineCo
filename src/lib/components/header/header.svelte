@@ -9,14 +9,15 @@
     </div>
 
     <div class="flex items-center">
-      <a href="/" class="text-nowrap font-semibold rounded-full bg-blue-300 hover:bg-blue-700 p-2">Contact Us</a>
+      <a href="/contactus" class="text-nowrap font-semibold rounded-full bg-blue-300 hover:bg-blue-700 p-2">Contact Us</a>
     </div>
   </div>
 </header>
 
-<style>
+<style lang="scss">
   header {
     height: 75px;
+    border-bottom: 2px solid $primary-accent;
   }
 
   a {
