@@ -1,42 +1,42 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
 
-	export let data: PageData;
+	export let form: PageData;
 </script>
 
 <!-- email form -->
 <div class="w-full flex justify-center">
 	<div class="max-w-7xl flex h-[75vh] items-center">
-
-		<form class="w-full max-w-lg">
+		<form class="w-full max-w-lg" method="POST" use:enhance action="?/sendEmail">
 			<div class="flex flex-wrap -mx-3 mb-6">
 				<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <!-- First Name -->
+					<!-- First Name -->
 					<label
 						class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-						for="grid-first-name"
+						for="firstName"
 					>
 						First Name
 					</label>
 					<input
 						class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-						id="grid-first-name"
+						name="firstName"
 						type="text"
 						placeholder="Jane"
 					/>
 					<!-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> -->
 				</div>
 				<div class="w-full md:w-1/2 px-3">
-          <!-- Last Name -->
+					<!-- Last Name -->
 					<label
 						class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-						for="grid-last-name"
+						for="lastName"
 					>
 						Last Name
 					</label>
 					<input
 						class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="grid-last-name"
+						name="lastName"
 						type="text"
 						placeholder="Doe"
 					/>
@@ -44,32 +44,41 @@
 			</div>
 			<div class="flex flex-wrap -mx-3 mb-6">
 				<div class="w-full px-3">
-					<label
-						class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-						for="grid-message"
-					>
-						Message
-					</label>
-					<textarea
-						class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="grid-message"
-            rows="6"
-						placeholder="Hi! I'd like to request a site survey for your free vending machine placements at my office/break room/rest stop."
-					/>
-					<!-- <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> -->
+          <!-- email -->
+          <div class="mb-2">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+              Email
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="email" type="email" placeholder="JaneDoe@gmail.com" />
+          </div>
+          <!-- Message area -->
+					<div>
+						<label
+							class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+							for="message"
+						>
+							Message
+						</label>
+						<textarea
+							class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+							name="message"
+							rows="6"
+							placeholder="Hi! I'd like to request a site survey for your free vending machine placements at my office/break room/rest stop."
+						/>
+					</div>
 				</div>
 			</div>
 			<div class="flex flex-wrap -mx-3 mb-2">
 				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-						for="grid-city"
+						for="city"
 					>
 						City
 					</label>
 					<input
 						class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="grid-city"
+						name="city"
 						type="text"
 						placeholder="Toledo"
 					/>
@@ -77,14 +86,14 @@
 				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-						for="grid-state"
+						for="state"
 					>
 						State
 					</label>
 					<div class="relative">
 						<select
 							class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-							id="grid-state"
+							name="state"
 						>
 							<option selected>Ohio</option>
 							<option>Michigan</option>
@@ -106,40 +115,33 @@
 				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-						for="grid-zip"
+						for="zip"
 					>
 						Zip
 					</label>
 					<input
 						class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="grid-zip"
+						name="zip"
 						type="text"
 						placeholder="43601"
 					/>
 				</div>
 			</div>
-      <div class="w-full flex justify-center">
-        <button class="w-1/2 rounded-md p-2" type="submit">Send &rarr;</button>
-      </div>
+			<div class="w-full flex justify-center">
+				<button class="w-1/2 rounded-md p-2" type="submit">Send &rarr;</button>
+			</div>
 		</form>
 	</div>
 </div>
 
 <style lang="scss">
-	// legend {
-	//   margin: 0 auto;
-	// }
-
-	// label {
-	//   width: 50px;
-	// }
-
-	textarea, input {
+	textarea,
+	input {
 		border: 2px solid $primary-accent;
 	}
 
 	button {
 		background-color: $primary-accent;
-    border: 2px solid $background;
+		border: 2px solid $background;
 	}
 </style>
